@@ -7,6 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
+	교수:과목 등록<br>
+	Subject:<br>
 	<form action="profEnrollSubject.do" method="post">
 		ID : <input type="text" name="id"/> 교과목 번호<br>
 		ProfId : <input type="text" name="pId"/> 교수 아이디<br>

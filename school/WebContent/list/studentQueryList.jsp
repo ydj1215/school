@@ -8,7 +8,7 @@
 <html>
 <head><title>회원 목록</title></head>
 <body>
-      교수:등록한 과목 리스트
+      학생:수강신청한 과목 리스트
       <table border = "1">
       <tr>
             <td>과목번호</td>
@@ -21,8 +21,6 @@
       Connection conn = null;
       Statement stmt = null;
       ResultSet rs = null;
-      String sId = (String)request.getSession().getAttribute("sId");
-      request.setAttribute("sId", sId);
       try
       {
             String jdbcDriver = "jdbc:mysql://localhost/school?characterEncoding=UTF-8&serverTimezone=UTC";
@@ -53,5 +51,6 @@
       }
 %>
       </table>
+	  <a href="../studentMenu.jsp">Menu</a><br>
 </body>
 </html>

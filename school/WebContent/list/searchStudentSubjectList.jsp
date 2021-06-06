@@ -6,33 +6,48 @@
 <%@ page import = "java.sql.ResultSet" %>
 <%@ page import = "java.sql.SQLException" %>
 <html>
-<head><title>회원 목록</title></head>
+<head><title>학생 목록</title></head>
+<style>
+	tr
+	{
+  		counter-increment: aaa;
+	}
+	tr>td:first-child:before
+	{
+		content: counter(aaa) " ";
+	}
+</style>
+<script type="text/javascript">
+	function changeView(value)
+	{
+		if(value == "0")
+		{
+			location.href="../studentMenu.jsp";
+		}
+	}
+</script>
 <body>
-	ID: <input type="text" name="id"/> <button onclick="changeView(0)">search</button>
-	<br><br><br>
-		
-      교수:등록한 과목 리스트
-      <table border = "1">
-      <tr>
-            <td>과목번호</td>
-            <td>학생명</td>
-      </tr>
- 
+	Subject
+	<form action="searchStudentSubjectList.jsp" method="post">
+	ID: <input type="text" name="id"/> <button onclick="changeView(0)">search</button><br><br><br>
+	</form>
+	
+	<table>
 <%
+	  String id = request.getParameter("id");
       Class.forName("com.mysql.cj.jdbc.Driver");
   
       Connection conn = null;
       Statement stmt = null;
       ResultSet rs = null;
-      String sId = (String)request.getSession().getAttribute("sId");
-      request.setAttribute("sId", sId);
+      
       try
       {
             String jdbcDriver = "jdbc:mysql://localhost/school?characterEncoding=UTF-8&serverTimezone=UTC";
             String dbUser = "root";
             String dbPass = "woehddb5555!";
    
-            String query = "select * from enroll;";
+            String query = "select title from subject where id = "+id;
             conn = DriverManager.getConnection(jdbcDriver, dbUser, dbPass);
             stmt = conn.createStatement();
             rs = stmt.executeQuery(query);
@@ -40,10 +55,7 @@
             while(rs.next())
             {
 %>
-      <tr>
-            <td><%= rs.getString("subject") %></td>
-            <td><%= rs.getString("student") %></td>
-      </tr>
+     			<tr><td><%= rs.getString("title") %>  <input type = 'button' value = 'enrollment' onclick="changeView(0)"/></td></tr>
 <%
             }
       }catch(SQLException ex){
@@ -56,6 +68,6 @@
       }
 %>
       </table>
-      <a href="studentMenu.jsp">Menu</a><br>
+      <a href="../studentMenu.jsp">Menu</a><br>
 </body>
 </html>

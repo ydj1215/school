@@ -146,10 +146,10 @@ public class SchoolDao {
 		{
 			conn = connect();
 			pstmt = conn.prepareStatement("insert into subject values(?,?,?,?);");
-			pstmt.setString(1,subject.getId()); //과목아이디
+			pstmt.setString(1,subject.getId());
 			pstmt.setString(2,subject.getTitle());
 			pstmt.setString(3,subject.getCount()+"");
-			pstmt.setString(4,subject.getpId()); //교수아이디
+			pstmt.setString(4,subject.getpId());
 			pstmt.executeUpdate();
 		}
 		catch(Exception e)

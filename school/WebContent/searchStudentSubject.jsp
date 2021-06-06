@@ -12,12 +12,15 @@
 	{
 		if(value == "0")
 		{
-			location.href="/list/searchStudentSubjectList.jsp";
+			location.href="list/searchStudentSubjectList.jsp";
 		}
 	}
 	</script>
 <body>
+	Subject
+	<form action="list/searchStudentSubjectList.jsp" method="post">
 	ID: <input type="text" name="id"/> <button onclick="changeView(0)">search</button><br><br><br>
 		<a href="studentMenu.jsp">Menu</a>
+	</form>
 </body>
 </html>
