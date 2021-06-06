@@ -16,10 +16,10 @@ public class ProfEnrollSubjectController implements Controller {
 		// TODO Auto-generated method stub
 		String id = request.getParameter("id");
 		String pId = request.getParameter("pId");
-		String title = request.getParameter("title");
+		String name = request.getParameter("name");
 		int count = Integer.parseInt(request.getParameter("count"));
 		
-		SchoolDto subject = new SchoolDto(id,pId,title,count);
+		SchoolDto subject = new SchoolDto(id,pId,name,count);
 		
 		Service s = Service.getInstance();
 		s.profEnrollSubject(subject);

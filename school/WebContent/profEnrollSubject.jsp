@@ -12,7 +12,7 @@
 	<form action="profEnrollSubject.do" method="post">
 		ID : <input type="text" name="id"/> 교과목 번호<br>
 		ProfId : <input type="text" name="pId"/> 교수 아이디<br>
-		Title: <input type = "text" name = "title"/> 강의명<br>
+		Title: <input type = "text" name = "name"/> 강의명<br>
 		# of Student: <input type="text" name="count"/> 학생수<br><br>
 		<input type="submit" value="Enroll"/>
 	</form>

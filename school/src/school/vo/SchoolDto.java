@@ -4,21 +4,21 @@ public class SchoolDto {
 	private String id;
 	private String pId;
 	private String pwd;
-	private String title;
+	private String name;
 	private int count;
 	
 	public SchoolDto() {}
-	public SchoolDto(String tid, String tTitle, int tCount)
+	public SchoolDto(String tid, String tName, int tCount)
 	{
 		this.id=tid;
-		this.title=tTitle;
+		this.name=tName;
 		this.count=tCount;
 	}
-	public SchoolDto(String tid, String pId, String tTitle, int tCount)
+	public SchoolDto(String tid, String pId, String tName, int tCount)
 	{
 		this.id=tid;
 		this.pId =pId;
-		this.title=tTitle;
+		this.name=tName;
 		this.count=tCount;
 	}
 	
@@ -40,11 +40,11 @@ public class SchoolDto {
 	public void setPwd(String tPwd) {
 		this.pwd = tPwd;
 	}
-	public String getTitle() {
-		return title;
+	public String getName() {
+		return name;
 	}
-	public void setTitle(String tTitle) {
-		this.title= tTitle;
+	public void setName(String tName) {
+		this.name= tName;
 	}
 	public int getCount() {
 		return count;

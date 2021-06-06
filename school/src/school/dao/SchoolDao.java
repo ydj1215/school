@@ -147,7 +147,7 @@ public class SchoolDao {
 			conn = connect();
 			pstmt = conn.prepareStatement("insert into subject values(?,?,?,?);");
 			pstmt.setString(1,subject.getId());
-			pstmt.setString(2,subject.getTitle());
+			pstmt.setString(2,subject.getName());
 			pstmt.setString(3,subject.getCount()+"");
 			pstmt.setString(4,subject.getpId());
 			pstmt.executeUpdate();

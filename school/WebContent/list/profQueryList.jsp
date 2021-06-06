@@ -6,6 +6,15 @@
 <%@ page import = "java.sql.SQLException" %>
 <html>
 <head><title>회원 목록</title></head>
+<script type="text/javascript">
+	function changeView(value)
+	{
+		if(value == "0")
+		{
+			location.href="/school/list/profAboutList01.jsp";
+		}
+	}
+</script>
 <body>
       교수:등록한 과목 리스트
       <table border = "1">
@@ -33,13 +42,13 @@
             conn = DriverManager.getConnection(jdbcDriver, dbUser, dbPass);
             stmt = conn.createStatement();
             rs = stmt.executeQuery(query);
-   
+     
             while(rs.next())
             {
 %>
       <tr>
-            <td><%= rs.getString("id") %></td>
-            <td><%= rs.getString("title") %></td>
+            <td onclick="changeView(0)" style="color: blue;"><u><%= rs.getString("id") %></u></td>
+            <td><%= rs.getString("name") %></td>
             <td><%= rs.getString("count") %></td>
             <td><%= rs.getString("prof") %></td>
       </tr>

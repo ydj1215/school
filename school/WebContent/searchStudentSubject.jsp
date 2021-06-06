@@ -15,7 +15,7 @@
 			location.href="list/searchStudentSubjectList.jsp";
 		}
 	}
-	</script>
+</script>
 <body>
 	Subject
 	<form action="list/searchStudentSubjectList.jsp" method="post">

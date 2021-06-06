@@ -12,7 +12,7 @@
       <table border = "1">
       <tr>
             <td>과목번호</td>
-            <td>학생명</td>
+            <td>과목명</td>
       </tr>
  
 <%
@@ -21,27 +21,30 @@
       Connection conn = null;
       Statement stmt = null;
       ResultSet rs = null;
+      String id = request.getParameter("id");
       try
       {
             String jdbcDriver = "jdbc:mysql://localhost/school?characterEncoding=UTF-8&serverTimezone=UTC";
             String dbUser = "root";
             String dbPass = "woehddb5555!";
    
-            String query = "select * from enroll;";
+            String query = "select b.id, b.name from enroll a, subject b where a.subject=b.id and a.student ="+id+";";
             conn = DriverManager.getConnection(jdbcDriver, dbUser, dbPass);
             stmt = conn.createStatement();
             rs = stmt.executeQuery(query);
-   
+   			int count = 0;
+   			
             while(rs.next())
             {
+            	count ++;
 %>
       <tr>
-            <td><%= rs.getString("subject") %></td>
-            <td><%= rs.getString("student") %></td>
+            <td><%= count %></td>
+            <td><%= rs.getString("name") %></td>
       </tr>
 <%
             }
-      }catch(SQLException ex){
+      }catch(Exception ex){
             out.println(ex.getMessage());
             ex.printStackTrace();
       }finally{
