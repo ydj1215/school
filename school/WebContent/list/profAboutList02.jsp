@@ -17,13 +17,14 @@
 </script>
 <body>
       교수:과목의 수강생 리스트
-      <table border = "1">
+      <table id='myTable' border = "1" >
       <tr>
             <td>id</td>
             <td>이름</td>
       </tr>
  
 <%
+  	  int count = 0;
       Class.forName("com.mysql.cj.jdbc.Driver");
   
       Connection conn = null;
@@ -41,7 +42,6 @@
             conn = DriverManager.getConnection(jdbcDriver, dbUser, dbPass);
             stmt = conn.createStatement();
             rs = stmt.executeQuery(query);
-            int count = 0;	
    
             while(rs.next())
             {
@@ -63,6 +63,7 @@
       }
 %>
       </table>
-      <a href="../profMenu.jsp">Menu</a><br>
+      총 수강 인원: <%= count %>명<br>
+<a href="../profMenu.jsp">Menu</a><br>  
 </body>
 </html>

@@ -8,8 +8,7 @@
 </head>
 <body>
 		<form action="profAboutList02.jsp" method="post">
-		과목 번호: <input type="text" name="gId"/><br>
-		<input type="submit" value="Query"/>
+		과목 번호: <input type="text" name="id"/> <input type="submit" value="Query"/>
 		</form>
 </body>
 </html>

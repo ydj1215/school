@@ -8,8 +8,7 @@
 </head>
 <body>
 		<form action="studentQueryList02.jsp" method="post">
-		학생 아이디: <input type="text" name="id"/><br>
-		<input type="submit" value="Query"/>
+		학생 아이디: <input type="text" name="id"/> <input type="submit" value="Query"/>
 		</form>
 </body>
 </html>
